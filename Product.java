@@ -1,9 +1,11 @@
 public interface Product {
     String name = "unknown";
     double price = 0;
-    String category = "unknown";
+    // String category = "unknown";
 
-    double priceWithTaxes();
+    double priceWithTaxes(double price);
 
     void productInfo();
+
+    double getPrice();
 }

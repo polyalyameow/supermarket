@@ -14,17 +14,17 @@ public class Cart {
     public double getTotalPrice() {
         double total = 0;
         for (Product product : products) {
-            total += product.priceWithTaxes();
+            total += product.getPrice();
         }
-
         return total;
+
     }
 
     public void displayCart() {
         for (Product product : products) {
             product.productInfo();
             System.out.println("----------------");
-            
+
         }
     }
 }

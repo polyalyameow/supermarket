@@ -3,16 +3,17 @@ public class Fruits implements Product {
     private double price;
     private String category;
 
-    public Fruits(String name, double price, String category) {
+    public Fruits(String name, double price) {
         this.name = name;
-        this.price = price;
+        this.price = priceWithTaxes(price);
         this.category = "Fruit";
     }
 
     @Override
-    public double priceWithTaxes() {
+    public double priceWithTaxes(double price) {
         double taxrate = 0.12;
-        return price + (price * taxrate);
+        double result = price + (price * taxrate);
+        return Math.round(result * 100.0) / 100.0;
     }
 
     @Override
@@ -22,6 +23,11 @@ public class Fruits implements Product {
                 + "Category: " + category + lineBreak
                 + "Product: " + name + lineBreak
                 + "Price: " + price + lineBreak);
+    }
+
+    @Override
+    public double getPrice() {
+        return price;
     }
 
 }
